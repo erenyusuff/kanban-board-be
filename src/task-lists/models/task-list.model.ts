@@ -1,11 +1,11 @@
-import { Column, HasMany, HasOne, Model, Table } from "sequelize-typescript";
-import { Card } from "../../cards/models/card.model";
+import { Column, HasMany, Model, Table } from 'sequelize-typescript';
+import { Card } from '../../cards/models/card.model';
 
 @Table
 export class TaskList extends Model {
   @Column({
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   })
   id: number;
   @Column

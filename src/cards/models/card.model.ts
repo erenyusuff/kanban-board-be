@@ -14,5 +14,5 @@ export class Card extends Model {
   @Column
   category: string;
   @Column
-  listId: number
+  listId: number;
 }

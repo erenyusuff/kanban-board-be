@@ -1,5 +1,12 @@
-import { BelongsToMany, Column, HasMany, Model, Table } from "sequelize-typescript";
-import { TaskList } from "../../task-lists/models/task-list.model";
+import {
+  BelongsToMany,
+  Column,
+  HasMany,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { TaskList } from '../../task-lists/models/task-list.model';
+import { Card } from '../../cards/models/card.model';
 
 @Table
 export class Board extends Model {
@@ -8,15 +15,15 @@ export class Board extends Model {
     autoIncrement: true,
   })
   id: number;
-  @Column
+  @Column({ defaultValue: true })
   isActive: boolean;
 
-  // @BelongsToMany(() => Product, {
-  //   through: () => CartProducts,
-  //   foreignKey: 'cartId',
-  //   otherKey: 'productId',
+  // @BelongsToMany(() => Card, {
+  //   through: () => TaskList,
+  //   foreignKey: 'boardId',
+  //   otherKey: 'listId',
   // })
-  // products: Product[];
+  // cards: Card[];
 
   @HasMany(() => TaskList, {
     sourceKey: 'id',
