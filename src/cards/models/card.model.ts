@@ -1,4 +1,4 @@
-import { Column, Model, Table } from "sequelize-typescript";
+import { Column, Model, Table } from 'sequelize-typescript';
 
 @Table
 export class Card extends Model {
@@ -12,7 +12,7 @@ export class Card extends Model {
   @Column
   description: string;
   @Column
-  category: string;
+  tag: string;
   @Column
   listId: number;
 }
