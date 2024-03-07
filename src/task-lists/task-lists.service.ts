@@ -11,6 +11,7 @@ export class TaskListsService {
   async findOne(id: number) {
     return this.listModel.findOne({
       where: { id: id },
+      include: {association: 'cards'}
     });
   }
 }

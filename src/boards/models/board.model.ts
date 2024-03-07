@@ -18,16 +18,16 @@ export class Board extends Model {
   @Column({ defaultValue: true })
   isActive: boolean;
 
+  @HasMany(() => TaskList, {
+    sourceKey: 'id',
+    foreignKey: 'boardId',
+  })
+  taskLists: TaskList[];
+
   // @BelongsToMany(() => Card, {
   //   through: () => TaskList,
   //   foreignKey: 'boardId',
   //   otherKey: 'listId',
   // })
   // cards: Card[];
-
-  @HasMany(() => TaskList, {
-    sourceKey: 'id',
-    foreignKey: 'boardId',
-  })
-  taskLists: TaskList[];
 }

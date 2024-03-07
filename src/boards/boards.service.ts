@@ -48,6 +48,7 @@ export class BoardsService {
   async findOne(id: number) {
     return this.boardModel.findOne({
       where: { id: id },
+      include: [{association: 'taskLists', include: ['cards']}]
     });
   }
 
