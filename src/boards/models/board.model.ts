@@ -5,11 +5,11 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { TaskList } from '../../task-lists/models/task-list.model';
-import { Card } from '../../cards/models/card.model';
+import { TaskListModel } from '../../task-lists/models/task-list.model';
+import { CardModel } from '../../cards/models/card.model';
 
 @Table
-export class Board extends Model {
+export class BoardModel extends Model {
   @Column({
     primaryKey: true,
     autoIncrement: true,
@@ -18,11 +18,11 @@ export class Board extends Model {
   @Column({ defaultValue: true })
   isActive: boolean;
 
-  @HasMany(() => TaskList, {
+  @HasMany(() => TaskListModel, {
     sourceKey: 'id',
     foreignKey: 'boardId',
   })
-  taskLists: TaskList[];
+  taskLists: TaskListModel[];
 
   // @BelongsToMany(() => Card, {
   //   through: () => TaskList,

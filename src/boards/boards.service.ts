@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Board } from './models/board.model';
+import { BoardModel } from './models/board.model';
 import { CreateBoardDto } from './dto/create-board.dto';
-import { TaskList } from '../task-lists/models/task-list.model';
+import { TaskListModel } from '../task-lists/models/task-list.model';
 
 @Injectable()
 export class BoardsService {
   constructor(
-    @InjectModel(Board)
-    private readonly boardModel: typeof Board,
-    @InjectModel(TaskList)
-    private readonly listModel: typeof TaskList,
+    @InjectModel(BoardModel)
+    private readonly boardModel: typeof BoardModel,
+    @InjectModel(TaskListModel)
+    private readonly listModel: typeof TaskListModel,
   ) {}
 
   async createBoard() {

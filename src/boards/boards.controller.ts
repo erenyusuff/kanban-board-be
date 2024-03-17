@@ -1,18 +1,18 @@
 import { Controller, Delete, Get, Param, Post } from "@nestjs/common";
 import { BoardsService } from './boards.service';
-import { Board } from './models/board.model';
+import { BoardModel } from './models/board.model';
 
 @Controller('boards')
 export class BoardsController {
   constructor(private readonly boardService: BoardsService) {}
 
   @Post()
-  create(): Promise<Board> {
+  create(): Promise<BoardModel> {
     return this.boardService.createBoard();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number): Promise<Board> {
+  findOne(@Param('id') id: number): Promise<BoardModel> {
     return this.boardService.findOne(id);
   }
   @Delete(':id')

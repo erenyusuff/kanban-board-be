@@ -1,8 +1,8 @@
 import { Column, HasMany, Model, Table } from 'sequelize-typescript';
-import { Card } from '../../cards/models/card.model';
+import { CardModel } from '../../cards/models/card.model';
 
 @Table
-export class TaskList extends Model {
+export class TaskListModel extends Model {
   @Column({
     primaryKey: true,
     autoIncrement: true,
@@ -13,9 +13,9 @@ export class TaskList extends Model {
   @Column
   name: string;
 
-  @HasMany(() => Card, {
+  @HasMany(() => CardModel, {
     sourceKey: 'id',
     foreignKey: 'listId',
   })
-  cards: Card[];
+  cards: CardModel[];
 }

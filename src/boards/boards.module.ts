@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Board } from './models/board.model';
+import { BoardModel } from './models/board.model';
 import { BoardsService } from './boards.service';
 import { BoardsController } from './boards.controller';
-import { TaskList } from '../task-lists/models/task-list.model';
+import { TaskListModel } from '../task-lists/models/task-list.model';
 
 @Module({
-  imports: [SequelizeModule.forFeature([Board])],
+  imports: [SequelizeModule.forFeature([BoardModel])],
   providers: [
     BoardsService,
     {
-      provide: 'TaskListRepository',
-      useValue: TaskList,
+      provide: 'TaskListModelRepository',
+      useValue: TaskListModel,
     },
   ],
   controllers: [BoardsController],
